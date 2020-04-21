@@ -17,7 +17,7 @@ namespace WinForms
 		private string _path;
 		private IEnumerable<string> _filesDirectory;
 
-		private int countRows = 0; 
+		private int _countRows = 0; // Счетчик для добавления в новую строку таблицы.
 
 		public MainForm()
 		{
@@ -138,7 +138,11 @@ namespace WinForms
 			_filesDirectory = Directory.EnumerateFiles(_path, "*.*", SearchOption.TopDirectoryOnly)
 				.Where(s => s.EndsWith("*.png") || s.EndsWith("*.jpg"));
 		}
-
+		/// <summary>
+		/// Метод проводит проверку на заполнение данных и выдает предупреждение если нужные данные не введены.
+		/// Если же все обязательные поля для ввода заполнены, то сохраняет их в таблицу.
+		/// </summary>
+		
 		private void _btnSave_Click(object sender, EventArgs e)
 		{
 
@@ -171,14 +175,14 @@ namespace WinForms
 			{
 				dataGridView.Rows.Add();
 
-				dataGridView[0, countRows].Value = _txtEnterName.Text;
-				dataGridView[1, countRows].Value = _txtEnterLastName.Text;
-				dataGridView[2, countRows].Value = _cmbEnterMath.Visible ? _cmbEnterMath.SelectedItem.ToString() : "-";
-				dataGridView[3, countRows].Value = _cmbEnterRus.Visible ? _cmbEnterRus.SelectedItem.ToString() : "-";
-				dataGridView[4, countRows].Value = _cmbEnterHistory.Visible ? _cmbEnterHistory.SelectedItem.ToString() : "-";
-				dataGridView[5, countRows].Value = _cmbEnterH20.Visible ? _cmbEnterH20.SelectedItem.ToString() : "-";
+				dataGridView[0, _countRows].Value = _txtEnterName.Text;
+				dataGridView[1, _countRows].Value = _txtEnterLastName.Text;
+				dataGridView[2, _countRows].Value = _cmbEnterMath.Visible ? _cmbEnterMath.SelectedItem.ToString() : "-";
+				dataGridView[3, _countRows].Value = _cmbEnterRus.Visible ? _cmbEnterRus.SelectedItem.ToString() : "-";
+				dataGridView[4, _countRows].Value = _cmbEnterHistory.Visible ? _cmbEnterHistory.SelectedItem.ToString() : "-";
+				dataGridView[5, _countRows].Value = _cmbEnterH20.Visible ? _cmbEnterH20.SelectedItem.ToString() : "-";
 
-				countRows++;
+				_countRows++;
 
 				MessageBox.Show("Данные добавлены", "Успех!", MessageBoxButtons.OK, MessageBoxIcon.Information);
 			}

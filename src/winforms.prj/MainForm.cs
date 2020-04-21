@@ -150,19 +150,19 @@ namespace WinForms
 			{
 				MessageBox.Show("Поле 'Фамилия' обязательно для заполнения", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 			}
-			else if(_cmbEnterMath.Visible == true && _cmbEnterMath.SelectedItem == null)
+			else if(_cmbEnterMath.Visible && _cmbEnterMath.SelectedItem == null)
 			{
 				MessageBox.Show("Заполните поле 'Математика' ", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 			}
-			else if(_cmbEnterRus.Visible == true && _cmbEnterRus.SelectedItem == null)
+			else if(_cmbEnterRus.Visible && _cmbEnterRus.SelectedItem == null)
 			{
 				MessageBox.Show("Заполните поле 'Русский язык' ", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 			}
-			else if(_cmbEnterHistory.Visible == true && _cmbEnterHistory.SelectedItem == null)
+			else if(_cmbEnterHistory.Visible && _cmbEnterHistory.SelectedItem == null)
 			{
 				MessageBox.Show("Заполните поле 'История' ", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 			}
-			else if(_cmbEnterH20.Visible == true && _cmbEnterH20.SelectedItem == null)
+			else if(_cmbEnterH20.Visible && _cmbEnterH20.SelectedItem == null)
 			{
 				MessageBox.Show("Заполните поле 'Химия' ", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 			}
@@ -173,10 +173,10 @@ namespace WinForms
 
 				dataGridView[0, countRows].Value = _txtEnterName.Text;
 				dataGridView[1, countRows].Value = _txtEnterLastName.Text;
-				dataGridView[2, countRows].Value = _cmbEnterMath.Visible == true ? _cmbEnterMath.SelectedItem.ToString() : "-";
-				dataGridView[3, countRows].Value = _cmbEnterRus.Visible == true ? _cmbEnterRus.SelectedItem.ToString() : "-";
-				dataGridView[4, countRows].Value = _cmbEnterHistory.Visible == true ? _cmbEnterHistory.SelectedItem.ToString() : "-";
-				dataGridView[5, countRows].Value = _cmbEnterH20.Visible == true ? _cmbEnterH20.SelectedItem.ToString() : "-";
+				dataGridView[2, countRows].Value = _cmbEnterMath.Visible ? _cmbEnterMath.SelectedItem.ToString() : "-";
+				dataGridView[3, countRows].Value = _cmbEnterRus.Visible ? _cmbEnterRus.SelectedItem.ToString() : "-";
+				dataGridView[4, countRows].Value = _cmbEnterHistory.Visible ? _cmbEnterHistory.SelectedItem.ToString() : "-";
+				dataGridView[5, countRows].Value = _cmbEnterH20.Visible ? _cmbEnterH20.SelectedItem.ToString() : "-";
 
 				countRows++;
 
